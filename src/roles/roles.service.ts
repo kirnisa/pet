@@ -7,9 +7,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class RolesService {
-  roleRepository: any;
   constructor(
-    @InjectRepository(RoleEntity) roleRepository: Repository<RoleEntity>,
+    @InjectRepository(RoleEntity)
+    private readonly roleRepository: Repository<RoleEntity>,
   ) {}
   async findAll(): Promise<RoleEntity[]> {
     return await this.roleRepository.find();

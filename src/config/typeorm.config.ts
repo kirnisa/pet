@@ -3,7 +3,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export function getTypeOrmConfig(
   configService: ConfigService,
-): TypeOrmModuleOptions {
+): Promise<TypeOrmModuleOptions> {
   return {
     type: 'postgres',
     host: configService.getOrThrow<string>('POSTGRES_HOST'),
