@@ -20,14 +20,14 @@ export class SubscribesController {
     return this.subscribesService.create(createSubscribeDto);
   }
 
-  @Get()
+  @Get('all')
   findAll() {
     return this.subscribesService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.subscribesService.findOne(+id);
+  findById(@Param('id') id: string) {
+    return this.subscribesService.findById(+id);
   }
 
   @Patch(':id')
@@ -40,6 +40,6 @@ export class SubscribesController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.subscribesService.remove(+id);
+    return this.subscribesService.delete(+id);
   }
 }

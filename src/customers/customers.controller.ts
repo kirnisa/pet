@@ -20,14 +20,14 @@ export class CustomersController {
     return this.customersService.create(createCustomerDto);
   }
 
-  @Get()
+  @Get('all')
   findAll() {
     return this.customersService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.customersService.findOne(+id);
+  findById(@Param('id') id: string) {
+    return this.customersService.findById(+id);
   }
 
   @Patch(':id')
@@ -40,6 +40,6 @@ export class CustomersController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.customersService.remove(+id);
+    return this.customersService.delete(+id);
   }
 }

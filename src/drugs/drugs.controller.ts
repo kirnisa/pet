@@ -20,14 +20,14 @@ export class DrugsController {
     return this.drugsService.create(createDrugDto);
   }
 
-  @Get()
+  @Get('all')
   findAll() {
     return this.drugsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.drugsService.findOne(+id);
+  findById(@Param('id') id: string) {
+    return this.drugsService.findById(+id);
   }
 
   @Patch(':id')
@@ -37,6 +37,6 @@ export class DrugsController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.drugsService.remove(+id);
+    return this.drugsService.delete(+id);
   }
 }

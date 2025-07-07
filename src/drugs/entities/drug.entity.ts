@@ -1,4 +1,3 @@
-import { isString } from 'node:util';
 import {
   Column,
   CreateDateColumn,
@@ -7,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity
+@Entity('drugs')
 export class DrugEntity {
   @PrimaryGeneratedColumn()
   id: number;
