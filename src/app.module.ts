@@ -7,6 +7,8 @@ import { CustomersModule } from './customers/customers.module';
 import { RolesModule } from './roles/roles.module';
 import { SubscribesModule } from './subscribes/subscribes.module';
 import { DatabaseModule } from './database/database.module';
+import { MigrationsModule } from './migrations/migrations.module';
+
 
 @Module({
   imports: [
@@ -16,8 +18,9 @@ import { DatabaseModule } from './database/database.module';
     CustomersModule,
     RolesModule,
     SubscribesModule,
+    MigrationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
