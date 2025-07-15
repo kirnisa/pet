@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString } from "class-validator"
+import { IsDate, IsNotEmpty, IsString } from "class-validator"
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -9,7 +9,9 @@ export class CreateUserDto {
   @IsString()
   role: string
   @IsNotEmpty()
+  @IsDate()
   createdDate: Date
   @IsNotEmpty()
+  @IsDate()
   updatedDate: Date
 }
