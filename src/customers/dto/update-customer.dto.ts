@@ -1,1 +1,3 @@
-export class UpdateCustomerDto {}
+export class UpdateCustomerDto {
+  fio:string
+}

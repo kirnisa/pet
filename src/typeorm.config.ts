@@ -1,18 +1,19 @@
-import { DataSource } from "typeorm"
+import { DataSource, Migration } from "typeorm"
 import CONNECTION from "./db.connection"
 
 // @ts-ignore
 const AppDataSource = new DataSource({
-   ...CONNECTION,
-   entities:["*/**/*.entity.ts"]
+  ...CONNECTION,
+  entities: ["*/**/*.entity.ts"],
+  migrations: ["./src/migration/*.ts"],
 })
 
 AppDataSource.initialize()
-    .then(() => {
-        console.log("Data Source has been initialized!")
-    })
-    .catch((err) => {
-        console.error("Error during Data Source initialization", err)
-    })
+  .then(() => {
+    console.log("Data Source has been initialized!")
+  })
+  .catch(err => {
+    console.error("Error during Data Source initialization", err)
+  })
 
-export default AppDataSource;
+export default AppDataSource
