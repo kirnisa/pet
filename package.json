@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "typeorm": "typeorm-ts-node-commonjs",
-    "mkmigrations": "npx typeorm-ts-node-commonjs migration:generate ./src/migrations/autho -d ./src/typeorm.config.ts",
+    "mkmigrations": "npx typeorm migration:generate ./src/migrations/*.ts -d ./src/typeorm.config.ts",
     "nest": "nest",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -27,6 +27,7 @@
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/swagger": "^11.2.0",
     "@nestjs/typeorm": "^11.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",

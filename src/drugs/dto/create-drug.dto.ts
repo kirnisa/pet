@@ -8,10 +8,4 @@ export class CreateDrugDto {
   @IsString()
   @IsNotEmpty()
   description: string
-  @IsNotEmpty()
-  @IsDate()
-  createdDate: Date
-  @IsNotEmpty()
-  @IsDate()
-  updatedDate: Date
 }

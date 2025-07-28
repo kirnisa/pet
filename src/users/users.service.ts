@@ -11,13 +11,16 @@ export class UsersService {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
   ) {}
+
   async findAll(): Promise<UserEntity[]> {
     return await this.userRepository.find();
   }
+  
   async create(createUserDto: CreateUserDto): Promise<UserEntity> {
     const user = this.userRepository.create(createUserDto);
     return await this.userRepository.save(user);
   }
+
   async findById(id: number): Promise<UserEntity> {
     const user = await this.userRepository.findOne({
       where: {

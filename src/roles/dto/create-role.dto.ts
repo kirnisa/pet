@@ -9,10 +9,4 @@ export class CreateRoleDto {
   @IsNotEmpty()
   @IsString()
   description: string
-  @IsNotEmpty()
-  @IsDate()
-  createdDate: Date
-  @IsNotEmpty()
-  @IsDate()
-  updatedDate: Date
 }

@@ -7,7 +7,6 @@ import { CustomersModule } from './customers/customers.module';
 import { RolesModule } from './roles/roles.module';
 import { SubscribesModule } from './subscribes/subscribes.module';
 import { DatabaseModule } from './database/database.module';
-import { MigrationsModule } from './migrations/migrations.module';
 
 @Module({
   imports: [
@@ -17,7 +16,6 @@ import { MigrationsModule } from './migrations/migrations.module';
     CustomersModule,
     RolesModule,
     SubscribesModule,
-    MigrationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

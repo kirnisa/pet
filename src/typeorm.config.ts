@@ -1,11 +1,11 @@
-import { DataSource, Migration } from "typeorm"
+import { DataSource } from "typeorm"
 import CONNECTION from "./db.connection"
 
 // @ts-ignore
 const AppDataSource = new DataSource({
   ...CONNECTION,
-  entities: ["*/**/*.entity.ts"],
-  migrations: ["./src/migration/*.ts"],
+  entities: ["./**/*.entity.ts"],
+  migrations: ["./**/*autho.ts"],
 })
 
 AppDataSource.initialize()
