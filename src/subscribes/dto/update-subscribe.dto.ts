@@ -3,8 +3,9 @@ import { IsNotEmpty, IsString } from "class-validator"
 export class UpdateSubscribeDto {
   @IsNotEmpty()
   @IsString()
-  name: string
+  name: string;
+  
   @IsNotEmpty()
   @IsString()
-  description: string
+  description: string;
 }

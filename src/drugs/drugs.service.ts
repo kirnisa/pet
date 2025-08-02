@@ -12,13 +12,16 @@ export class DrugsService {
     @InjectRepository(DrugEntity)
     private readonly drugRepository: Repository<DrugEntity>,
   ) {}
+
   async findAll(): Promise<DrugEntity[]> {
     return await this.drugRepository.find();
   }
+
   async create(createDrugDto: CreateDrugDto): Promise<DrugEntity> {
     const drug = this.drugRepository.create(createDrugDto);
     return await this.drugRepository.save(drug);
   }
+
   async findById(id: number): Promise<DrugEntity> {
     const drug = await this.drugRepository.findOne({
       where: {
@@ -28,12 +31,14 @@ export class DrugsService {
     if (!drug) throw new NotFoundException('Не найдено');
     return drug;
   }
+
   async update(id: number, updateDrugDto: UpdateDrugDto): Promise<DrugEntity> {
     const drug = await this.findById(id);
     Object.assign(drug, updateDrugDto);
     await this.drugRepository.save(drug);
     return drug;
   }
+  
   async delete(id: number): Promise<number> {
     const drug = await this.findById(id);
     await this.drugRepository.remove(drug);

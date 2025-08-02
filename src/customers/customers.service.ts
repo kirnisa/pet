@@ -11,13 +11,16 @@ export class CustomersService {
     @InjectRepository(CustomerEntity)
     private readonly customerRepository: Repository<CustomerEntity>,
   ) {}
+
   async findAll(): Promise<CustomerEntity[]> {
     return await this.customerRepository.find();
   }
+
   async create(createCustomerDto: CreateCustomerDto): Promise<CustomerEntity> {
     const customer = this.customerRepository.create(createCustomerDto);
     return await this.customerRepository.save(customer);
   }
+
   async findById(id: number): Promise<CustomerEntity> {
     const customer = await this.customerRepository.findOne({
       where: {
@@ -27,6 +30,7 @@ export class CustomersService {
     if (!customer) throw new NotFoundException('Не найдено');
     return customer;
   }
+
   async update(
     id: number,
     updateCustomerDto: UpdateCustomerDto,
@@ -36,6 +40,7 @@ export class CustomersService {
     await this.customerRepository.save(customer);
     return customer;
   }
+  
   async delete(id: number): Promise<number> {
     const customer = await this.findById(id);
     await this.customerRepository.remove(customer);

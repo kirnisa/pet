@@ -30,12 +30,14 @@ export class UsersService {
     if (!user) throw new NotFoundException('Не найдено');
     return user;
   }
+
   async update(id: number, updateUserDto: UpdateUserDto): Promise<UserEntity> {
     const user = await this.findById(id);
     Object.assign(user, updateUserDto);
     await this.userRepository.save(user);
     return user;
   }
+  
   async delete(id: number): Promise<number> {
     const user = await this.findById(id);
     await this.userRepository.remove(user);

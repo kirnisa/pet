@@ -2,11 +2,13 @@ import { IsDate, IsNotEmpty, IsString } from "class-validator"
 
 export class CreateRoleDto {
   @IsNotEmpty()
-  id: number
+  id: number;
+
   @IsNotEmpty()
   @IsString()
-  name: string
+  name: string;
+  
   @IsNotEmpty()
   @IsString()
-  description: string
+  description: string;
 }

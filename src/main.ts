@@ -14,10 +14,12 @@ async function bootstrap() {
     .setVersion("1.0.0")
     .setContact("Kirill Krishtopenko, Syoma Zverev", "https://github.com/kirnisa/pet", "krishtopenko01@gmail.com")
     .build()
+
   const document = SwaggerModule.createDocument(app, config)
 
   SwaggerModule.setup("/swagger", app, document)
 
   await app.listen(process.env.PORT ?? 3000)
 }
+
 bootstrap()

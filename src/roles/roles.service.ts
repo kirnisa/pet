@@ -11,13 +11,16 @@ export class RolesService {
     @InjectRepository(RoleEntity)
     private readonly roleRepository: Repository<RoleEntity>,
   ) {}
+
   async findAll(): Promise<RoleEntity[]> {
     return await this.roleRepository.find();
   }
+
   async create(createRoleDto: CreateRoleDto): Promise<RoleEntity> {
     const role = this.roleRepository.create(createRoleDto);
     return await this.roleRepository.save(role);
   }
+
   async findById(id: number): Promise<RoleEntity> {
     const role = await this.roleRepository.findOne({
       where: {
@@ -27,12 +30,14 @@ export class RolesService {
     if (!role) throw new NotFoundException('Не найдено');
     return role;
   }
+
   async update(id: number, updateRoleDto: UpdateRoleDto): Promise<RoleEntity> {
     const role = await this.findById(id);
     Object.assign(role, updateRoleDto);
     await this.roleRepository.save(role);
     return role;
   }
+  
   async delete(id: number): Promise<number> {
     const role = await this.findById(id);
     await this.roleRepository.remove(role);

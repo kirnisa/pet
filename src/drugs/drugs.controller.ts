@@ -8,6 +8,7 @@ import { ApiBody, ApiTags } from "@nestjs/swagger"
 @Controller("drugs")
 export class DrugsController {
   constructor(private readonly drugsService: DrugsService) {}
+
   @ApiBody({
     schema: {
       type: "object",
@@ -32,6 +33,7 @@ export class DrugsController {
   findById(@Param("id") id: string) {
     return this.drugsService.findById(+id)
   }
+  
   @ApiBody({
     schema: {
       type: "object",

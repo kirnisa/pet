@@ -1,9 +1,11 @@
-import { IsNotEmpty } from "class-validator"
+import { IsNotEmpty, IsString } from "class-validator"
 
 export class UpdateDrugDto {
+  @IsString()
   @IsNotEmpty()
+  name: string;
+  
+  @IsString()
   @IsNotEmpty()
-  name: string
-  @IsNotEmpty()
-  description: string
+  description: string;
 }

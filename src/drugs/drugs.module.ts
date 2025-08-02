@@ -9,4 +9,5 @@ import { DrugEntity } from './entities/drug.entity';
   controllers: [DrugsController],
   providers: [DrugsService],
 })
+
 export class DrugsModule {}

@@ -16,6 +16,7 @@ import { ApiBody, ApiTags } from '@nestjs/swagger';
 @Controller('subscribes')
 export class SubscribesController {
   constructor(private readonly subscribesService: SubscribesService) {}
+
   @ApiBody({
     schema: {
       type: 'object',
@@ -36,10 +37,11 @@ export class SubscribesController {
     return this.subscribesService.findAll();
   }
 
-  @Get(':id')
-  findById(@Param('id') id: string) {
+  @Get(":id")
+  findById(@Param(":id") id: string) {
     return this.subscribesService.findById(+id);
   }
+
   @ApiBody({
     schema: {
       type: 'object',
@@ -49,16 +51,16 @@ export class SubscribesController {
       }
     }
   })
-  @Patch(':id')
+  @Patch(":id")
   update(
-    @Param('id') id: string,
+    @Param(":id") id: string,
     @Body() updateSubscribeDto: UpdateSubscribeDto,
   ) {
     return this.subscribesService.update(+id, updateSubscribeDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
+  @Delete(":id")
+  remove(@Param(":id") id: string) {
     return this.subscribesService.delete(+id);
   }
 }

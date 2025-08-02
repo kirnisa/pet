@@ -3,13 +3,17 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateCol
 @Entity("users")
 export class UserEntity {
   @PrimaryGeneratedColumn()
-  id: number
+  id: number;
+
   @Column()
-  fio: string
+  fio: string;
+
   @Column()
-  role: string
+  role: string;
+
   @CreateDateColumn()
-  createdDate: Date
+  createdDate: Date;
+
   @UpdateDateColumn()
-  updatedDate: Date
+  updatedDate: Date;
 }

@@ -27,4 +27,5 @@ function validateEnvVariable(name: string): string {
     }),
   ],
 })
+
 export class DatabaseModule {}

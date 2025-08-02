@@ -7,6 +7,7 @@ import { CustomersModule } from './customers/customers.module';
 import { RolesModule } from './roles/roles.module';
 import { SubscribesModule } from './subscribes/subscribes.module';
 import { DatabaseModule } from './database/database.module';
+import { PurchasesModule } from './purchases/purchases.module';
 
 @Module({
   imports: [
@@ -16,8 +17,12 @@ import { DatabaseModule } from './database/database.module';
     CustomersModule,
     RolesModule,
     SubscribesModule,
+    PurchasesModule,
   ],
+
   controllers: [AppController],
+
   providers: [AppService],
 })
+
 export class AppModule { }

@@ -11,15 +11,18 @@ export class SubscribesService {
     @InjectRepository(SubscribeEntity)
     private readonly subscribeRepository: Repository<SubscribeEntity>,
   ) {}
+
   async findAll(): Promise<SubscribeEntity[]> {
     return await this.subscribeRepository.find();
   }
+
   async create(
     createSubscribeDto: CreateSubscribeDto,
   ): Promise<SubscribeEntity> {
     const subscribe = this.subscribeRepository.create(createSubscribeDto);
     return await this.subscribeRepository.save(subscribe);
   }
+
   async findById(id: number): Promise<SubscribeEntity> {
     const subscribe = await this.subscribeRepository.findOne({
       where: {
@@ -29,6 +32,7 @@ export class SubscribesService {
     if (!subscribe) throw new NotFoundException('Не найдено');
     return subscribe;
   }
+
   async update(
     id: number,
     updateSubscribeDto: UpdateSubscribeDto,
@@ -38,6 +42,7 @@ export class SubscribesService {
     await this.subscribeRepository.save(subscribe);
     return subscribe;
   }
+  
   async delete(id: number): Promise<number> {
     const subscribe = await this.findById(id);
     await this.subscribeRepository.remove(subscribe);

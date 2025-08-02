@@ -1,11 +1,14 @@
-import { IsDate, IsNotEmpty, IsString } from "class-validator"
+import {IsNotEmpty, IsString } from "class-validator"
+
 export class CreateDrugDto {
   @IsNotEmpty()
-  id: number
+  id: number;
+
   @IsString()
   @IsNotEmpty()
-  name: string
+  name: string;
+  
   @IsString()
   @IsNotEmpty()
-  description: string
+  description: string;
 }

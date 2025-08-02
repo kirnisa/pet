@@ -8,6 +8,7 @@ import { ApiBody, ApiTags } from "@nestjs/swagger"
 @Controller("roles")
 export class RolesController {
   constructor(private readonly rolesService: RolesService) {}
+
   @ApiBody({
     schema: {
       type: "object",
@@ -23,7 +24,7 @@ export class RolesController {
     return this.rolesService.create(createRoleDto)
   }
 
-  @Get()
+  @Get("all")
   findAll() {
     return this.rolesService.findAll()
   }
@@ -32,6 +33,7 @@ export class RolesController {
   findOne(@Param("id") id: string) {
     return this.rolesService.findById(+id)
   }
+
   @ApiBody({
     schema: {
       type: "object",

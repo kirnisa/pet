@@ -3,11 +3,13 @@ import { IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-valida
 export class CreateUserDto {
   @IsNumber()
   @IsNotEmpty()
-  id: number
+  id: number;
+
   @IsNotEmpty()
   @IsString()
-  fio: string
+  fio: string;
+
   @IsString()
   @IsOptional()
-  role: string
+  role: string;
 }

@@ -9,4 +9,5 @@ import { SubscribeEntity } from './entities/subscribe.entity';
   controllers: [SubscribesController],
   providers: [SubscribesService],
 })
+
 export class SubscribesModule {}
